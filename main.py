@@ -9,6 +9,7 @@ input_encoder = input("Input: ").lower()
 # Converts into a list.
 lst_input_encoder = list(input_encoder)
 
+
 # defines both two functions to discriminate whether it is a blue or green hexadecimal, else it is not true.
 def not_blue():
     encoded_lst = []
@@ -27,6 +28,7 @@ def not_green():
     else:
         print("Not Green")
 
+
 def encoder():
     encoded_lst = []
     if lst_input_encoder[0] != GENERIC[1]:  # This checks to confirm if 0x exists.
@@ -39,17 +41,13 @@ def encoder():
 not_blue()
 not_green()
 
-
-
-#---------------------------------
+# ---------------------------------
 #       Quick to do list:
 # 1 Learn this fancy code:
 #       i = 0xhelloworld
 #       hex_string = f'0x{i:>010X}'
 #       print(hex_string)
-# 2 Scrape data off web and test
-#   the script out.
-#       - Export the output data
-#   Oh how exciting!
+# 2 Feed data into this script
+#   and print the outcome.
 #
-#---------------------------------
+# ---------------------------------
