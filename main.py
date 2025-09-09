@@ -1,45 +1,31 @@
-# Target values
+# constants
 BLUE = list("0000ff")
 GREEN = list("00ff00")
 GENERIC = str("0x000000")
 
-# User input
-input_encoder = input("Input: ").lower()
-
-# Converts into a list.
-lst_input_encoder = list(input_encoder)
-
-
-# defines both two functions to discriminate whether it is a blue or green hexadecimal, else it is not true.
-def not_blue():
+def encoder(user_input):
     encoded_lst = []
-    if lst_input_encoder[-2:-1] >= list(BLUE[-2:-1]) or lst_input_encoder[-1:] >= list(BLUE[-1:]):  # Compares values.
-        encoder()
-        print("Blue")  # Prints the outcome.
-    else:
-        print("Not Blue")  # Self-explanatory.
-
-
-def not_green():
-    encoded_lst = []
-    if lst_input_encoder[-4:-3] >= GREEN[-4:-3] or lst_input_encoder[-3:-2] >= list(GREEN[-3:-2]):
-        encoder()
-        print("Green")
-    else:
-        print("Not Green")
-
-
-def encoder():
-    encoded_lst = []
-    if lst_input_encoder[0] != GENERIC[1]:  # This checks to confirm if 0x exists.
-        lst_input_encoder[:0] = ["0x"]  # If it does exists, places '0x' at the start of the string.
-        hex_num = "".join(lst_input_encoder)  # Joins the string together.
+    if user_input[0] != GENERIC[1]:  # This checks to confirm if 0x exists.
+        user_input[:0] = ["0x"]  # If it does exists, places '0x' at the start of the string.
+        hex_num = "".join(user_input)  # Joins the string together.
         encoded_lst = hex_num  # Converts into hexadecimal by going into a list.
         print(encoded_lst)  # Checks to see if it works or not.
 
+def main():
+    """
+    takes in user input and outputs "Green", "Blue" or "not Green or Blue" based on the input"""
+    user_input = list(input("Input: ").lower())
+    encoded_lst = []
+    if user_input[-4:-3] >= GREEN[-4:-3] or user_input[-3:-2] >= list(GREEN[-3:-2]):
+        encoder(user_input)
+        print("Green")
+    elif user_input[-2:-1] >= list(BLUE[-2:-1]) or user_input[-1:] >= list(BLUE[-1:]):
+        encoder(user_input)
+        print("Blue") 
+    else:
+        print("not Green or Blue")
 
-not_blue()
-not_green()
+main()
 
 # ---------------------------------
 #       Quick to do list:
